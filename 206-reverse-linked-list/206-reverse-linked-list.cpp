@@ -19,7 +19,6 @@ public:
         ListNode* runner = head->next;
         ListNode* temp = head->next;
         
-        
         while(runner != nullptr) {
             runner = runner->next;
             temp->next = walker;
