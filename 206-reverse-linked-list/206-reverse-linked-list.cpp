@@ -27,8 +27,7 @@ public:
             temp = runner;
         }
         head->next = nullptr;
-        //cout << walker->val;
-        //cout << walker->next->val;
+
         return walker;
         
         
