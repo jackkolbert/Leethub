@@ -13,11 +13,8 @@ class Solution {
 public:
     int maxDepth(TreeNode* root) {
         if(root == nullptr) {return 0;}
-        return max(recursive_helper(root->left), recursive_helper(root->right)) + 1;
+        return max(maxDepth(root->left), maxDepth(root->right)) + 1;
     }
     
-    int recursive_helper(TreeNode* root) {
-        if(root == nullptr) {return 0;} 
-        return max(recursive_helper(root->left), recursive_helper(root->right)) + 1;
-    }
+
 };
