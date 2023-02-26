@@ -26,10 +26,10 @@ public:
             }
             else {
                 fin_max = max(right - left + 1, fin_max);
-                right++;
-                if(right < s.size()) {
-                    c_window[s[right]-65]++;
-                }
+            }
+            right++;
+            if(right < s.size()) {
+                c_window[s[right]-65]++;
             }
         }
         
