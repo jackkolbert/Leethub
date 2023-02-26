@@ -21,7 +21,6 @@ public:
             else if(prices[right] > highest_price) {
                 highest_price = prices[right];
                 diff_max = max(diff_max, highest_price - lowest_price);
-                std::cout << highest_price << " " << lowest_price << '\n';
             }
             right++;
         }
