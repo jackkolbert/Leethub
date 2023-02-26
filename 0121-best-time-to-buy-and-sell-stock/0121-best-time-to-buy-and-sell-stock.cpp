@@ -1,7 +1,6 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int left = 0;
         int right = 1;
         
         int diff_max = 0;
@@ -14,7 +13,6 @@ public:
             // insight - move left whenever you see a lower left
             
             if(prices[right] < lowest_price) {
-                left = right;
                 lowest_price = prices[right];
                 highest_price = 0;
             }
