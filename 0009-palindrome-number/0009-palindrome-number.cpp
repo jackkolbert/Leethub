@@ -5,7 +5,7 @@ public:
         //cout << eric;
         int p = eric.size()-1;
         
-        for(int i = 0; i < eric.size() / 2 + 1; i++) {
+        for(int i = 0; i < eric.size() / 2; i++) {
             if(eric[i] == eric[p]) {
                 p--;
             }
