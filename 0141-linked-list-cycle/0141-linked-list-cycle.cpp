@@ -20,12 +20,9 @@ public:
                 return true;
             }
             slow = slow->next;
-            if(fast->next == nullptr || fast->next->next == nullptr) {
-                return false;
-            }
-            else{
-                fast = fast->next->next;
-            }
+            
+            fast = fast->next->next;
+            
         }
         return false;
     }
