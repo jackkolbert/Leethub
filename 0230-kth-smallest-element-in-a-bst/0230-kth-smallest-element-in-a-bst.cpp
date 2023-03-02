@@ -25,9 +25,6 @@ public:
         if(root == nullptr) {
             return -1;
         }
-        else if(k == 0) {
-            return root->val;
-        }
         else{
             int a = helper(root->left, k);
             if(a != -1) {return a;}
