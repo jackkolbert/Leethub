@@ -15,10 +15,7 @@ public:
         
         int val = root->val;
         
-        if(val == p->val || val == q->val) {
-            return root;
-        }
-        else if(val > p->val && val > q->val) {
+        if(val > p->val && val > q->val) {
             return lowestCommonAncestor(root->left, p, q);
         }
         else if(val < p->val && val < q->val) {
