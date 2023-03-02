@@ -34,9 +34,7 @@ public:
                 return temp;
             }
         }
-        
-            return helper_1(root->left, subRoot) || helper_1(root->right, subRoot);    
-        
+        return helper_1(root->left, subRoot) || helper_1(root->right, subRoot);    
     }
     
     bool isSame(TreeNode* root, TreeNode* subRoot) {
