@@ -16,7 +16,8 @@ class Solution:
                 l = i+1
                 r = len(nums)-1
                 while(l < r):
-                    if nums[i] + nums[l] + nums[r] == 0:
+                    temp = nums[i] + nums[l] + nums[r]
+                    if temp == 0:
                         solution.append([nums[i], nums[l], nums[r]])
                         prev_l = nums[l]
                         prev_r = nums[r]
@@ -24,7 +25,7 @@ class Solution:
                             l += 1
                         while l < r and prev_r == nums[r]:
                             r -= 1
-                    elif nums[i] + nums[l] + nums[r] > 0:
+                    elif temp > 0:
                         r -= 1
                     else:
                         l += 1
