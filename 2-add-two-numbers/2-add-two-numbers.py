@@ -38,7 +38,7 @@ class Solution:
                 else:
                     carry = 0
             
-        if l2:
+        elif l2:
             head.next = l2
             while carry != 0:
                 l2.val += carry
@@ -53,7 +53,7 @@ class Solution:
                 else:
                     carry = 0
                     
-        if carry != 0:
+        elif carry != 0:
             head.next = ListNode(val=carry, next=None)
         return head_copy
         
