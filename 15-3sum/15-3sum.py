@@ -7,7 +7,7 @@ class Solution:
         nums.sort()
         
         prev_val = -10001
-        for i in range(0, len(nums)):
+        for i in range(0, len(nums) - 2):
             if prev_val == nums[i]:
                 continue
             else:
