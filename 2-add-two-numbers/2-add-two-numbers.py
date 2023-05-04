@@ -12,10 +12,9 @@ class Solution:
         while l1 and l2:
             true_val_carry = int(carry)
             val = l1.val + l2.val + true_val_carry
-            carry = int((val / 10))
-            val = val % 10
+            carry = int(val / 10)
             
-            head.val = val
+            head.val = val % 10
             if l1.next and l2.next:
                 head.next = ListNode()
                 head = head.next
