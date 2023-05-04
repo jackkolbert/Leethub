@@ -9,9 +9,8 @@ class Node:
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         ret_dict = {}                
-        if node is None:
-            return None
-        return self.clone(node, ret_dict)
+    
+        return self.clone(node, ret_dict) if node else None
         
     def clone(self, node, ret_dict):
         
