@@ -5,6 +5,7 @@
 #         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        
         carry = 0
         head = ListNode(val=0,next=None)
         head_copy = head
@@ -53,8 +54,6 @@ class Solution:
                     carry = 0
                     
         if carry != 0:
-            while head.next:
-                head = head.next
             head.next = ListNode(val=carry, next=None)
         return head_copy
         
