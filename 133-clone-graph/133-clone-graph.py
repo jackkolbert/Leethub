@@ -8,23 +8,19 @@ class Node:
 
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
-        ret_dict = {}                
-    
-        return self.clone(node, ret_dict) if node else None
         
-    def clone(self, node, ret_dict):
+        self.visited = {}
+        return self.clone(node) if node else None
         
-        # check if node taken care of already
-        if node in ret_dict:
-            return ret_dict[node]
+    def clone(self, node):
+        
+        if node in self.visited:
+            return self.visited[node]
         
         else:
-            copy = Node(node.val)
-            ret_dict[node] = copy
-
+            copy = Node(val=node.val)
+            self.visited[node] = copy
             for nei in node.neighbors:
-                copy.neighbors.append(self.clone(nei, ret_dict))
-        
-            return copy 
-
-        
+                copy.neighbors.append(self.clone(nei))
+            return copy
+            
