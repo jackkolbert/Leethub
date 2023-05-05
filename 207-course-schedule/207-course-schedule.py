@@ -22,7 +22,6 @@ class Solution:
         else:
             if course in visited:
                 return False
-            temp = visited
             visited.add(course)
             
             for preq in self.c_preq[course]:
