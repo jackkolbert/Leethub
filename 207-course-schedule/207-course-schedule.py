@@ -22,10 +22,11 @@ class Solution:
         else:
             if course in visited:
                 return False
+            temp = visited
             visited.add(course)
             
             for preq in self.c_preq[course]:
-                status = self.preq_check(preq, visited)
+                status = self.preq_check(preq, temp)
                 if status is False:
                     return False
                 else:
