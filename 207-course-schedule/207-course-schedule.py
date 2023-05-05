@@ -8,7 +8,8 @@ class Solution:
 
         # all courses
         for i in range(0, numCourses):
-            status = self.preq_check(i, [])
+            visited = set()
+            status = self.preq_check(i, visited)
             if status is False:
                 return False
         return True
@@ -22,7 +23,7 @@ class Solution:
             if course in visited:
                 return False
             temp = visited
-            temp.append(course)
+            temp.add(course)
             
             for preq in self.c_preq[course]:
                 status = self.preq_check(preq, temp)
