@@ -26,7 +26,7 @@ class Solution:
             visited.add(course)
             
             for preq in self.c_preq[course]:
-                status = self.preq_check(preq, temp)
+                status = self.preq_check(preq, visited)
                 if status is False:
                     return False
                 else:
