@@ -9,18 +9,18 @@ class Node:
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         
-        visited = {}
-        return self.clone(node, visited) if node else None
+        self.visited = {}
+        return self.clone(node) if node else None
         
-    def clone(self, node, visited):
+    def clone(self, node):
         
-        if node.val in visited:
-            return visited[node.val]
+        if node in self.visited:
+            return self.visited[node]
         
         else:
             copy = Node(val=node.val)
-            visited[node.val] = copy
+            self.visited[node] = copy
             for nei in node.neighbors:
-                copy.neighbors.append(self.clone(nei, visited))
+                copy.neighbors.append(self.clone(nei))
             return copy
             
