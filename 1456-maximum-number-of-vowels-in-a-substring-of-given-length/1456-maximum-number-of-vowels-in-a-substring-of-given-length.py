@@ -3,8 +3,7 @@ class Solution:
         
         vowels = {'a', 'e', 'i', 'o', 'u'}
     
-        l,r,count,max_count = 0, 0, 0, 0
-        
+        l, r, count, max_count = 0, 0, 0, 0
         
         if s[0] in vowels:
             count += 1
