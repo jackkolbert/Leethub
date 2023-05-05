@@ -14,12 +14,12 @@ class Solution:
         
     def clone(self, node):
         
-        if node in self.visited:
-            return self.visited[node]
+        if node.val in self.visited:
+            return self.visited[node.val]
         
         else:
             copy = Node(val=node.val)
-            self.visited[node] = copy
+            self.visited[node.val] = copy
             for nei in node.neighbors:
                 copy.neighbors.append(self.clone(nei))
             return copy
