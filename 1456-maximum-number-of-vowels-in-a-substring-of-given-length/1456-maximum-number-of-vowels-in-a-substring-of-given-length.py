@@ -10,7 +10,7 @@ class Solution:
         
         if s[0] in vowels:
             count += 1
-        while r < len(s):
+        while True:
             if r - l + 1 < k:
                 r += 1
                 if s[r] in vowels:
