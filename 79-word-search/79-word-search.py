@@ -1,32 +1,40 @@
-import copy
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
         
-        count = defaultdict(int, sum(map(Counter, board), Counter()))
-        if count[word[0]] > count[word[-1]]:
-            word = word[::-1]
+        path = set()
+        rows = len(board)
+        cols = len(board[0])
         
-        self.path = []
-        for i in range(len(board)):
-            for k in range(len(board[0])):
-                if self.search(board, word, 0, i, k, path):
-                    return True
-        return False             
-                    
-    def search(self, board, word, w_ind, r, c, path):
+        def search(r, c, w_ind):
+            
+            if w_ind == len(word):
+                return True
+            
+            if (r < 0 or
+                r >= rows or
+                c < 0 or
+                c >= cols or
+                (r, c) in path
+                or word[w_ind] != board[r][c]):
+                return False
+            
+            path.add((r, c))
+            res = (
+                search(r + 1, c, w_ind + 1) or
+                search(r - 1, c, w_ind + 1) or
+                search(r, c + 1, w_ind + 1) or
+                search(r, c - 1, w_ind + 1)
+            )
+            path.remove((r,c))
+            return res
+        
 
-        if w_ind == len(word):
-            print('fire')
-            return True
+        for i in range(0, rows):
+            for k in range(0, cols):
+                if search(i, k, 0):
+                    return True
+                
+        return False
         
-        if r < 0 or r >= len(board) or c < 0 or c >= len(board[0]) or word[w_ind] != board[r][c] or (r, c) in self.path:
-            return False
-        
-        self.path.append((r, c))
-        up = self.search(board, word, w_ind + 1, r + 1, c, path)  # up
-        down = self.search(board, word, w_ind + 1, r - 1, c, path)  # down
-        left = self.search(board, word, w_ind + 1, r, c + 1, path)  # left
-        right = self.search(board, word, w_ind + 1, r, c - 1, path)  # right
-        
-        self.path.pop()
-        return up or left or down or right
+            
+            
