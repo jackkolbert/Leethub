@@ -23,9 +23,8 @@ class Solution:
                 if stuff % 10 == 0:
                     memo[0] = 0
                     memo[ind] = 0
-                    return 0
                 
-                if int(s[ind + 1]) == 0:
+                elif int(s[ind + 1]) == 0:
                     memo[ind] = dfs(ind+2)
                 else:
                     memo[ind] = dfs(ind+1)
