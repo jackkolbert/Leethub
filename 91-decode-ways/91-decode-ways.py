@@ -41,9 +41,6 @@ class Solution:
                 else:
                     memo[ind] = dfs(ind+1) + dfs(ind+2)
                 return memo[ind]
-            else:
-                print('oops')
-                return 0
             
         print(dfs(0))
         return memo[0]
