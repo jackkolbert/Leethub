@@ -28,8 +28,7 @@ class Solution:
             path.remove((r,c))
             return res
         
-        count = defaultdict(int, sum(map(Counter, board), Counter()))
-        if count[word[0]] > count[word[-1]]:
+        if word.count(word[0]) > word.count(word[-1]):
             word = word[::-1]
 
         for i in range(0, rows):
