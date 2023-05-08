@@ -22,6 +22,7 @@ class Solution:
                 print('here1')
                 if stuff % 10 == 0:
                     memo[0] = 0
+                    memo[ind] = 0
                     return 0
                 
                 if int(s[ind + 1]) == 0:
