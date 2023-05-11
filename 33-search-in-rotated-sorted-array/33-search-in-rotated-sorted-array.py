@@ -11,7 +11,7 @@ class Solution:
                 return mid
             
             if nums[l] <= nums[mid]:
-                if target <= nums[mid] and target >= nums[l]:  # in left
+                if target < nums[mid] and target >= nums[l]:  # in left
                     r = mid-1
                 else:
                     l = mid + 1
