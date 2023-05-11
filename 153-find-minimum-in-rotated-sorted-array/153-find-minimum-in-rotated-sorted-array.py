@@ -12,9 +12,8 @@ class Solution:
             if nums[mid] > nums[r]:  # min is in right half
                 l = mid + 1
             
-            elif nums[mid] < nums[l]:
-                r = mid - 1
             else:
                 r = mid - 1
+
                 
         return min_val
