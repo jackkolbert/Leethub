@@ -1,34 +1,35 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         
-        solution = []
-        
-        # for each element - run sliding window on excess
+        ret = []
         nums.sort()
+        po = -10001
         
-        prev_val = -10001
-        for i in range(0, len(nums) - 2):
-            if prev_val == nums[i]:
+        for i in range(len(nums) - 2):
+            if nums[i] == po:
                 continue
             else:
-                prev_val = nums[i]
-                
-                l = i+1
-                r = len(nums)-1
-                while(l < r):
-                    temp = nums[i] + nums[l] + nums[r]
-                    if temp == 0:
-                        solution.append([nums[i], nums[l], nums[r]])
-                        prev_l = nums[l]
-                        prev_r = nums[r]
-                        while l < r and prev_l == nums[l]:
-                            l += 1
-                        while l < r and prev_r == nums[r]:
-                            r -= 1
-                    elif temp > 0:
-                        r -= 1
-                    else:
-                        l += 1
-        return solution
-    
-        
+                po = nums[i]
+            
+            left = i + 1
+            right = len(nums) - 1
+            
+            while left < right:
+                temp_res = nums[i] + nums[left] + nums[right]
+
+                if temp_res > 0:
+                    right -= 1
+                elif temp_res < 0:
+                    left += 1
+                elif temp_res == 0:
+                    
+                    ret.append([nums[i], nums[left], nums[right]])
+                    while left+1 < right and nums[left] == nums[left + 1]:
+                        left += 1
+                    left += 1
+                    
+            
+            
+        return ret
+            
+             
