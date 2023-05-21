@@ -13,11 +13,10 @@ class Solution:
             if num-1 in my_set:
                 continue
             else:
-                temp = num
                 count = 1
-                while temp+1 in my_set:
+                while num+1 in my_set:
                     count += 1
-                    temp += 1
+                    num += 1
                 max_seq = max(count, max_seq)
                 
         return max_seq
