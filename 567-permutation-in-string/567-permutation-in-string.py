@@ -25,8 +25,6 @@ class Solution:
             
             if s1_map == window:
                 return True
-            print(s1_map)
-            print(window)
             window[s2[left]] -= 1
             if window[s2[left]] == 0:
                 window.pop(s2[left])
