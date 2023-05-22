@@ -54,15 +54,12 @@ class Codec:
             pos = int(pos)
             my_map[(level, pos)]  = TreeNode(val = value)
             
-        for node in nodes:
-            value, level, pos  = node.split(',')
-            level = int(level)
-            pos = int(pos)
             if (level-1, pos//2) in my_map:
                 if pos % 2 == 0:
                     my_map[(level-1, pos//2)].left = my_map[(level, pos)]
                 else:
                     my_map[(level-1, pos//2)].right = my_map[(level, pos)]
+            
                     
         return my_map[(0, 0)]
                     
