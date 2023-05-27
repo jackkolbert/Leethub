@@ -14,7 +14,7 @@ class Solution:
             return True
         
         paren = []
-        def generate(s,l, r):
+        def generate(s, l, r):
             if len(s) == 2 * n:
                 paren.append(s)
                 return
