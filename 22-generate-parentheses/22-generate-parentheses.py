@@ -29,9 +29,13 @@ class Solution:
             
         generate('', 0, 0)
         
-        ret = []
-        for par in paren:
-            if validate(par):
-                ret.append(par)
-        return ret
+        i = 0
+        while True:
+            if i >= len(paren):
+                break
+            if validate(paren[i]) is False:
+                paren.pop(i)
+            else:
+                i += 1
+        return paren
             
