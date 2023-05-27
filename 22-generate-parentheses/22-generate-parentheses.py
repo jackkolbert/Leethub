@@ -14,16 +14,20 @@ class Solution:
             return True
         
         paren = []
-        def generate(s):
+        def generate(s,l, r):
             if len(s) == 2 * n:
                 paren.append(s)
                 return
+            if l > n:
+                return
+            if r > n:
+                return
             a = s + '('
             b = s + ')'
-            generate(a)
-            generate(b)
+            generate(a, l + 1, r)
+            generate(b, l, r + 1)
             
-        generate('')
+        generate('', 0, 0)
         
         ret = []
         for par in paren:
