@@ -13,9 +13,6 @@ class Solution:
         elif curr_ind in self.memo:
             return self.memo[curr_ind]
         
-        elif curr_ind == len(nums) - 1:
-            return nums[len(nums)-1]
-        
         a = self.dfs(nums, curr_ind+1, curr_money)
         b = self.dfs(nums, curr_ind+2, curr_money+nums[curr_ind]) + nums[curr_ind]
         
