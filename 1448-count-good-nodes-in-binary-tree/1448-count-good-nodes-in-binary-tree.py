@@ -16,12 +16,9 @@ class Solution:
         if root is None:
             return
         
-        print('Node: ' + str(root.val) + ',' + str(t_max))
-
         if root.val >= t_max:
             t_max = root.val
             self.count += 1
-            print("counted")
 
         self.dfs(root.left, t_max)
         self.dfs(root.right, t_max)
