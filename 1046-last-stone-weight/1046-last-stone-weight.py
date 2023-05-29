@@ -4,17 +4,15 @@ class Solution:
         for i in range(len(stones)):
             stones[i] *= -1
         
-        heapq.heapify(stones)
-        print(stones)
-        
+        heapq.heapify(stones)        
         while(len(stones) > 1):
             a = heapq.heappop(stones) * -1
             b = heapq.heappop(stones) * -1
             
             if a > b:
-                heapq.heappush(stones, -1*(a-b))
+                heapq.heappush(stones, b-a)
             elif a < b:
-                heapq.heappush(stones, -1*(b-a))
+                heapq.heappush(stones, a-b)
                                
         if len(stones) == 1:
             return -1 * stones[0]
