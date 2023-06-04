@@ -9,11 +9,10 @@ class Solution:
                 return
                 
             for i in range(len(c_nums)):
-                temp = c_nums.pop(0)
-                res.append(temp)
-                backtrack(c_nums, res)
-                res.pop(len(res)-1)
-                c_nums.append(temp)
+                new_list = c_nums[0:i] + c_nums[i+1:len(c_nums)]
+                res.append(c_nums[i])
+                backtrack(new_list, res)
+                res.pop()
             
         
         backtrack(nums, [])
