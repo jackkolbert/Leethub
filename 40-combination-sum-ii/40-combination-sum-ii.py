@@ -19,8 +19,6 @@ class Solution:
                 prev = res.pop()
                 while len(nums) > 1 and prev == nums[1]:
                     nums.pop(1)
-                if len(nums) == 0:
-                    return
                 backtrack(nums[1:], res, curr)
             
             
