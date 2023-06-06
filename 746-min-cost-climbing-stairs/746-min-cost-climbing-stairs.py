@@ -13,4 +13,4 @@ class Solution:
                 memo[i] = a
                 return memo[i]
         
-        return min(rec(1), rec(0))
+        return min(rec(0), rec(1))
