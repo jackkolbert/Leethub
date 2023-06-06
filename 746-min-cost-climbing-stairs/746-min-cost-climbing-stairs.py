@@ -5,12 +5,10 @@ class Solution:
         def rec(i):
             if i >= len(cost):
                 return 0
-            
-            if i in memo:
+            elif i in memo:
                 return memo[i]
             else:
-                a = min(rec(i+1), rec(i+2)) + cost[i]
-                memo[i] = a
+                memo[i] = min(rec(i+1), rec(i+2)) + cost[i]
                 return memo[i]
         
         return min(rec(0), rec(1))
