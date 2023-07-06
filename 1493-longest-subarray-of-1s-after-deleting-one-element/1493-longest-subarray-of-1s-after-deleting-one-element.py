@@ -16,12 +16,10 @@ class Solution:
                 if contains_zero:
                     my_max = max(my_max, r-l+1)
                     l = after_zero_ind
-                    after_zero_ind = r + 1
-                    r += 1
-                else:
-                    contains_zero = True
-                    after_zero_ind = r + 1
-                    r += 1
+                    
+                contains_zero = True
+                after_zero_ind = r + 1
+                r += 1
                     
         my_max = max(my_max, r-l+1)
         
