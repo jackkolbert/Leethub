@@ -25,7 +25,6 @@ class Solution:
                     
         my_max = max(my_max, r-l+1)
         
-        my_max -= 1
-        return my_max - 1
+        return my_max - 2
                     
             
