@@ -1,28 +1,26 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
-        dict_list = []
+        freq_list = []
+        groups = []
         
-        ret = []
-        
-        for s in strs:
-            my_dict = {}
-            for let in s:
-                if let not in my_dict:
-                    my_dict[let] = 1
+        for string in strs:
+            freq = {}
+            for let in string:
+                if let in freq:
+                    freq[let] += 1
                 else:
-                    my_dict[let] += 1
-            
+                    freq[let] = 1
+                
             found = False
-            for i in range(len(dict_list)):
-                if my_dict == dict_list[i]:
-                    ret[i].append(s)
+            for i in range(len(freq_list)):
+                if freq == freq_list[i]:
+                    groups[i].append(string)
                     found = True
-            if found == False:
-                dict_list.append(my_dict)
-                ret.append([s])
-            
-        return ret
+                    break
+            if found is False:  
+                groups.append([string])
+                freq_list.append(freq)
                     
+        return groups
                     
-            
