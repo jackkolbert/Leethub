@@ -18,8 +18,6 @@ class Solution:
             if len(running) > 3 or int(running) > 255:
                 return
             
-            
-            
             if len(curr_ip) == 0:
                 temp_ip = running
             else:
