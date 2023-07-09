@@ -8,10 +8,8 @@ class Solution:
         
         while r <= len(s):
             wind = s[l:r]
-            print(wind)
             if wind in dupe:
                 if dupe[wind] == 1:
-                    print('hi')
                     ret.append(wind)
                 dupe[wind] += 1
             
