@@ -18,10 +18,7 @@ class Solution:
             if len(running) > 3 or int(running) > 255:
                 return
             
-            if len(curr_ip) == 0:
-                temp_ip = running
-            else:
-                temp_ip = curr_ip + '.' + running
+
             
             if running[0] == '0' and curr_ind != len(s) - 1:
                 if len(curr_ip) == 0:
