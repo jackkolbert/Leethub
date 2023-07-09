@@ -24,7 +24,10 @@ class Solution:
                 temp_ip = curr_ip + '.' + running
             
             if running[0] == '0' and curr_ind != len(s) - 1:
-                dfs(temp_ip, curr_ind+1, dots-1, '')
+                if len(curr_ip) == 0:
+                    dfs(running, curr_ind+1, dots-1, '')
+                else:
+                    dfs(curr_ip + '.' + running, curr_ind+1, dots-1, '')
             else:
                 dfs(temp_ip, curr_ind+1, dots-1, '')
                 dfs(curr_ip, curr_ind+1, dots, running)
