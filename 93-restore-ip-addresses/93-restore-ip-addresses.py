@@ -18,8 +18,6 @@ class Solution:
             if len(running) > 3 or int(running) > 255:
                 return
             
-
-            
             if running[0] == '0' and curr_ind != len(s) - 1:
                 if len(curr_ip) == 0:
                     dfs(running, curr_ind+1, dots-1, '')
