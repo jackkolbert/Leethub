@@ -29,8 +29,12 @@ class Solution:
                 else:
                     dfs(curr_ip + '.' + running, curr_ind+1, dots-1, '')
             else:
-                dfs(temp_ip, curr_ind+1, dots-1, '')
-                dfs(curr_ip, curr_ind+1, dots, running)
+                if len(curr_ip) == 0:
+                    dfs(running, curr_ind+1, dots-1, '')
+                    dfs(curr_ip, curr_ind+1, dots, running)
+                else:
+                    dfs(curr_ip + '.' + running, curr_ind+1, dots-1, '')
+                    dfs(curr_ip, curr_ind+1, dots, running)
             
 
         dfs('', 0, 3, '')
