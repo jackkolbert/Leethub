@@ -27,6 +27,7 @@ class Solution:
         for i in range(numCourses):
             if dfs(i, set()) is False:
                 return False
-           
+            else:
+                adj[i] = []
         return True
             
