@@ -13,12 +13,11 @@ class Solution:
         ending_ind = 0
         for i in range(startDay, endDay+1):
             
-            for k in range(ending_ind, len(events)):
-                if i == events[k][0]:
-                    heapq.heappush(pq, events[k][1])
-                    ending_ind += 1
-                else:
-                    break
+
+            while ending_ind < len(events) and i == events[ending_ind][0]:
+                heapq.heappush(pq, events[ending_ind][1])
+                ending_ind += 1
+
             
             while len(pq) != 0 and pq[0] < i:
                 heapq.heappop(pq)
