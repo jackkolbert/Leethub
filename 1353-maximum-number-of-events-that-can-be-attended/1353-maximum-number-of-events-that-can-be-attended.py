@@ -1,26 +1,28 @@
 class Solution:
     def maxEvents(self, events: List[List[int]]) -> int:
+        pq = []
+    
         events.sort()
-        total_days = max(end for start, end in events)
-        day = 0
-        event_id = 0
-        num_events_attended = 0
-        min_heap = []
+        endDay = 0
+        endDay = max(end for start, end in events)
+
+            
+        startDay = events[0][0]
         
-        for day in range(1, total_days+1):
-            # Add all the events that start today
-            while event_id < len(events) and events[event_id][0] == day:
-                heappush(min_heap, events[event_id][1])
-                event_id += 1
+        count = 0
+        ending_ind = 0
+        for i in range(startDay, endDay+1):
             
-            # Remove all the events whose end date was before today
-            while min_heap and min_heap[0] < day:
-                heappop(min_heap)
+            while ending_ind < len(events) and i == events[ending_ind][0]:
+                heapq.heappush(pq, events[ending_ind][1])
+                ending_ind += 1
+
+            while len(pq) != 0 and pq[0] < i:
+                heapq.heappop(pq)
             
-            # if any event that can be attended today, let's attend it
+            if len(pq) != 0:           
+                a = heapq.heappop(pq)
+                count += 1
+        return count
+        
             
-            if  min_heap:
-                heappop(min_heap)
-                num_events_attended += 1
-                
-        return num_events_attended
