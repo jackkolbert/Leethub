@@ -1,23 +1,39 @@
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
-        # Hash map 'basket' to store the types of fruits.
-        basket = {}
-        left = 0
         
-        # Add fruit from the right index (right) of the window.
-        for right, fruit in enumerate(fruits):
-            basket[fruit] = basket.get(fruit, 0) + 1
-
-            # If the current window has more than 2 types of fruit,
-            # we remove one fruit from the left index (left) of the window.
-            if len(basket) > 2:
-                basket[fruits[left]] -= 1
-
-                # If the number of fruits[left] is 0, remove it from the basket.
-                if basket[fruits[left]] == 0:
-                    del basket[fruits[left]]
-                left += 1
+        l = 0
+        r = -1
         
-        # Once we finish the iteration, the indexes left and right 
-        # stands for the longest valid subarray we encountered.
-        return right - left + 1
+        counts = {}
+        unique = 0
+        
+        my_max = 0
+        while r < len(fruits):
+            
+            if unique <= 2:
+                my_max = max(r-l+1, my_max)
+            
+            if r == len(fruits) - 1:
+                break
+            
+            # grow condition
+            if unique <= 2:
+                r += 1
+                if fruits[r] in counts:
+                    if counts[fruits[r]] == 0:
+                        unique += 1
+                    counts[fruits[r]] += 1
+                    
+                else:
+                    counts[fruits[r]] = 1
+                    unique += 1
+                
+            # shrink condition
+            elif unique > 2:
+                counts[fruits[l]] -= 1
+                if counts[fruits[l]] == 0:
+                    unique -= 1
+                l += 1
+        return my_max
+                
+                
