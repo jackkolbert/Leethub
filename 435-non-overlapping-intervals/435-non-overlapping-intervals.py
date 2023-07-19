@@ -3,18 +3,16 @@ class Solution:
         
         intervals.sort()
         count = 0
-        # consecutive overlap
-        right_val = intervals[0][1]
-        
-        for i in range(1, len(intervals)):
+        i = 0
+        while i < len(intervals) - 1:
             
-            if right_val > intervals[i][0]:
+            if intervals[i][1] > intervals[i+1][1]:
+                intervals.pop(i)
                 count += 1
-                right_val = min(intervals[i][1], right_val)
+            elif intervals[i][1] > intervals[i+1][0]:
+                intervals.pop(i+1)
+                count += 1
+
             else:
-                right_val = intervals[i][1]
-            
-    
+                i += 1
         return count
-        
-        
