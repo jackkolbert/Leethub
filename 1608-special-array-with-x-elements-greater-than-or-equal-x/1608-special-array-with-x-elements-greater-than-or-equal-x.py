@@ -10,10 +10,9 @@ class Solution:
             for i in range(len(nums)):
                 if nums[i] >= x:
                     gte[x] += 1
-
-        for i in range(len(gte)):
-            if i == gte[i]:
-                return i
+            if x == gte[x]:
+                return x
+                    
         return -1
             
         
