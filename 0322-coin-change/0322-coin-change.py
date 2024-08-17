@@ -3,30 +3,29 @@ class Solution:
         
         
         memo = {}
+        
         def dfs(curr):
-            if curr == 0:
+            
+            if curr in memo:
+                return memo[curr]
+            elif curr == 0:
                 return 0
             elif curr < 0:
                 return -1
-            elif curr in memo:
-                return memo[curr]
             else:
-                local_min = sys.maxsize
-                found = False
+                min_coins = sys.maxsize
                 for coin in coins:
-                    temp_steps = dfs(curr - coin)
-                    if temp_steps == -1:
+                    temp = dfs(curr - coin)
+                    if temp == -1:
                         continue
                     else:
-                        found = True
-                        local_min = min(local_min, temp_steps)
-                if found:
-                    memo[curr] = local_min + 1
-                    return local_min + 1 
-                else:
+                        min_coins = min(temp+1, min_coins)
+                if min_coins == sys.maxsize:
                     memo[curr] = -1
                     return -1
-        
+                else:
+                    memo[curr] = min_coins
+                    return min_coins
         return dfs(amount)
             
             
