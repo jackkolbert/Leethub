@@ -1,9 +1,8 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         
-        l = 0
-        r = 0
-        longest = 0
+        l,r,longest = 0,0,0
+
         window = 26 * [0]
         window[ord(s[0])-65] += 1
 
