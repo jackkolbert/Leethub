@@ -10,13 +10,10 @@ class Solution:
 
         while r < len(s):            
             # find the current leader
-            leader_letter = None
             leader_count = 0
             for i in range(len(window)):
                 if window[i] > leader_count:
                     leader_count = window[i]
-                    leader_letter = chr(i + 65)
-            print(leader_letter)
                     
             window_length = r-l+1
             if window_length > k + leader_count:
